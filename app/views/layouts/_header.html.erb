@@ -1,0 +1,22 @@
+<div class="navbar-fixed">
+  <nav class="light-blue z-depth-0" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>
+      </ul>
+
+      <ul id="nav-mobile" class="side-nav">
+        <% if user_signed_in? %>
+            <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to 'Login', new_user_session_path %></li>
+        <% end %>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><%= icon('bars') %></a>
+    </div>
+  </nav>
+</div>
