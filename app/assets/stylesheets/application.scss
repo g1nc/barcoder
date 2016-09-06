@@ -15,3 +15,13 @@ body {
 main {
   flex: 1 0 auto;
 }
+
+.divider {
+  min-height: 1px;
+  color: lightgrey;
+  margin: 1rem 0;
+}
+
+#index-banner {
+  background: url(image_path('loyalty.png')) no-repeat 100%;
+}
