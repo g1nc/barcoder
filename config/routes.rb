@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, :skip => :registration
+
   match 'contact', to: 'pages#contact', via: [:get]
   match 'about',   to: 'pages#about',   via: [:get]
 
