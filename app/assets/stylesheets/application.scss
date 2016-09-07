@@ -6,6 +6,8 @@ $secondary-color: color("light-blue", "base") !default;
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
+@import 'https://fonts.googleapis.com/css?family=Anton';
+
 body {
   display: flex;
   min-height: 100vh;
@@ -24,4 +26,8 @@ main {
 
 #index-banner {
   background: url(image_path('loyalty.png')) no-repeat 100%;
+}
+
+.brand-logo {
+  font-family: 'Anton', sans-serif;
 }

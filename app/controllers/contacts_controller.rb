@@ -1,28 +1,32 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @user = User.find_by_application_token(params[:token])
-    if @user
-      respond_with success: true, contacts: @user.contacts
-    else
-      respond_with success: false, message: 'Invalid token'
+  end
+
+  def show
+    @contact = Contact.find(params[:id])
+    if @contact.user_id != current_user.id
+      respond_to json: {error: true, message: 'Current contact not belongs to you!' }
     end
+  end
+
+  def new
   end
 
   def create
-    @user = User.find_by_application_token(params[:application])
+  end
 
-    @contact = Contact.new
-    @contact.user = @user
-    @contact.name = params[:name]
-    @contact.phone = params[:phone]
-    @contact.token = params[:device]
-
-    if @contact.save
-      render json: { success: true, contact: @contact }
-    else
-      render json: { success: false, errors: @contact.errors, status: :unprocessable_entity }
+  def edit
+    @contact = Contact.find(params[:id])
+    if @contact.user_id != current_user.id
+      respond_to json: {error: true, message: 'Current contact not belongs to you!' }
     end
   end
 
+  def update
+  end
+
+  def destroy
+  end
 end
