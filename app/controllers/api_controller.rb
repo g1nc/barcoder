@@ -1,15 +1,8 @@
-class ContactsController < ApplicationController
+class ApiController < ApplicationController
+  skip_before_action :verify_authenticity_token
+  respond_to :json
 
-  def index
-    @user = User.find_by_application_token(params[:token])
-    if @user
-      respond_with success: true, contacts: @user.contacts
-    else
-      respond_with success: false, message: 'Invalid token'
-    end
-  end
-
-  def create
+  def contact
     @user = User.find_by_application_token(params[:application])
 
     @contact = Contact.new
@@ -24,5 +17,4 @@ class ContactsController < ApplicationController
       render json: { success: false, errors: @contact.errors, status: :unprocessable_entity }
     end
   end
-
 end

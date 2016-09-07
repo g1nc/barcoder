@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160906231559) do
+ActiveRecord::Schema.define(version: 20160907183104) do
 
   create_table "contacts", force: :cascade do |t|
     t.integer  "user_id"
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20160906231559) do
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_contacts_on_name", unique: true
     t.index ["phone"], name: "index_contacts_on_phone", unique: true
+  end
+
+  create_table "contacts_notifications", id: false, force: :cascade do |t|
+    t.integer "contact_id"
+    t.integer "notification_id"
+    t.index ["contact_id"], name: "index_contacts_notifications_on_contact_id"
+    t.index ["notification_id"], name: "index_contacts_notifications_on_notification_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "text"
+    t.string   "link"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

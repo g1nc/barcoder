@@ -5,13 +5,17 @@ Rails.application.routes.draw do
   get 'dashboard/settings'
   get 'dashboard/notification'
 
-  devise_for :users
+  devise_for :users do
+    get 'register' => 'devise/registrations#new'
+    get 'login'    => 'devise/sessions#new'
+    get 'profile'  => 'devise/registrations#edit'
+  end
   authenticated :user do
     root :to => 'dashboard#index'
   end
 
   scope 'api', as: 'api', defaults: {format: :json} do
-    resources :contacts
+    post 'contacts', to: 'api#contact', via: [:post]
   end
 
   match 'contact', to: 'pages#contact', via: [:get]

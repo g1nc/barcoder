@@ -1,2 +1,7 @@
 <h1>Dashboard#contacts</h1>
 <p>Find me in app/views/dashboard/contacts.html.erb</p>
+<ul>
+  <% current_user.contacts.each do |contact| %>
+    <li><%= contact.name %></li>
+  <% end %>
+</ul>
