@@ -1,6 +1,7 @@
 <div class="navbar-fixed">
   <nav class="light-blue z-depth-0" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">Simple.tech</a>
+    <div class="nav-wrapper container">
+      <%= link_to 'Simple.tech', root_path, id: 'logo-container', class: 'brand-logo' %>
       <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
