@@ -2,7 +2,7 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    fcm = FCM.new('1:210475656488:android:d58603aa59d6a212')
+    fcm = FCM.new('AIzaSyB2zA4TL9napLFnR0cNI_I9gcdfg9qmZ6g')
     # you can set option parameters in here
     #  - all options are pass to HTTParty method arguments
     #  - ref: https://github.com/jnunemaker/httparty/blob/master/lib/httparty.rb#L29-L60
