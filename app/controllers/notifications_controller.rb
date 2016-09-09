@@ -9,7 +9,7 @@ class NotificationsController < ApplicationController
     #  fcm = FCM.new("my_api_key", timeout: 3)
 
     registration_ids= ['eE-sNZUdfMc'] # an array of one or more client registration tokens
-    options = {title: 'title1', body: 'test1'}
+    options = {data: {title: 'title1', body: 'test1'}}
     @response = fcm.send(registration_ids, options)
   end
 
