@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20160907183104) do
     t.string   "name",       null: false
     t.string   "phone",      null: false
     t.string   "token",      null: false
+    t.string   "code",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_contacts_on_name", unique: true

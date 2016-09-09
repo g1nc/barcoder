@@ -5,6 +5,7 @@ class CreateContacts < ActiveRecord::Migration[5.0]
       t.string :name,  null: false
       t.string :phone, null: false
       t.string :token, null: false
+      t.string :code,  null: false
       t.timestamps
     end
 

@@ -38,6 +38,11 @@
               <%= f.password_field :current_password, autocomplete: "off" %>
             </div>
 
+            <div class="field">
+              <%= f.label :application_token %><br />
+              <%= f.text_field :application_token %>
+            </div>
+
             <div class="actions">
               <%= f.submit "Update" %>
             </div>

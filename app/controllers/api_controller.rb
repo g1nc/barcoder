@@ -3,13 +3,13 @@ class ApiController < ApplicationController
   respond_to :json
 
   def contact
-    @user = User.find_by_application_token(params[:application])
+    @user = User.find_by_application_token(params[:app])
 
     @contact = Contact.new
     @contact.user = @user
     @contact.name = params[:name]
     @contact.phone = params[:phone]
-    @contact.token = params[:device]
+    @contact.token = params[:token]
 
     if @contact.save
       render json: { success: true, contact: @contact }
