@@ -3,7 +3,7 @@ class ApiController < ApplicationController
   respond_to :json
 
   def contact
-    @user = User.find_by_application_token(params[:app])
+    @user = User.find_by_token(params[:app])
 
     @contact = Contact.new
     @contact.user = @user
