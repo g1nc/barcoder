@@ -1,4 +1,3 @@
-require 'fcm'
 class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
@@ -12,7 +11,6 @@ class NotificationsController < ApplicationController
     registration_ids= ['eE-sNZUdfMc'] # an array of one or more client registration tokens
     options = {data: {score: '1'}, collapse_key: 'updated_score'}
     response = fcm.send(registration_ids, options)
-    byebug
   end
 
   def create
