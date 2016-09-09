@@ -1,8 +1,7 @@
 class Notification < ApplicationRecord
-  require 'fcm'
-
   belongs_to :user
   has_and_belongs_to_many :contacts
+  before_save :send_notification
 
   validates :text, presence: true
   
@@ -17,5 +16,6 @@ class Notification < ApplicationRecord
     registration_ids= ['eE-sNZUdfMc'] # an array of one or more client registration tokens
     options = {data: {score: '1'}, collapse_key: 'updated_score'}
     response = fcm.send(registration_ids, options)
+    byebug
   end
 end
