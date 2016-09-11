@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
@@ -28,5 +29,15 @@ class ContactsController < ApplicationController
   end
 
   def destroy
+    @contact.delete
+    respond_to do |format|
+      format.html { redirect_to contacts_url, notice: 'Contact was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
+
+  private
+    def set_contact
+      @contact = Contact.find(params[:id])
+    end
 end

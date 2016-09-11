@@ -1,21 +1,52 @@
 class NotificationsController < ApplicationController
+  before_action :set_notification, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
-    fcm = FCM.new('AIzaSyB2zA4TL9napLFnR0cNI_I9gcdfg9qmZ6g')
-    # you can set option parameters in here
-    #  - all options are pass to HTTParty method arguments
-    #  - ref: https://github.com/jnunemaker/httparty/blob/master/lib/httparty.rb#L29-L60
-    #  fcm = FCM.new("my_api_key", timeout: 3)
-
-    registration_ids= ['eE-sNZUdfMc'] # an array of one or more client registration tokens
-    options = {data: {score: "123"}, collapse_key: "updated_score"}
-    @response = fcm.send(registration_ids, options)
-  end
-
-  def create
+    @notifications = Notification.all
   end
 
   def show
   end
+
+  def new
+    @notification = Notification.new
+  end
+
+  def create
+    @notification = Notification.new(notification_params)
+    @notification.user = current_user
+    respond_to do |format|
+      if @notification.save
+        format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
+        format.json { render :show, status: :created, location: @notification }
+      else
+        format.html { render :new }
+        format.json { render json: @notification.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @notification.delete
+    respond_to do |format|
+      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+    def set_notification
+      @notification = Notification.find(params[:id])
+    end
+
+    def notification_params
+      params.require(:notification).permit(:link, :text)
+    end
 end

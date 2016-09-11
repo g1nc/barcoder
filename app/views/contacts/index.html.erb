@@ -3,34 +3,33 @@
 <div class="container" style="margin-top: -150px">
   <div class="row">
     <%= render('dashboard/menu') %>
-    <div class="col s12 m9">
+    <div class="col s12 m8 l9"><nav style="margin-top: 0.5rem">
+      <div class="nav-wrapper">
+        <div class="col s12">
+          <%= link_to icon('home'), root_path, class: 'breadcrumb' %>
+          <%= link_to 'Контакты', contacts_path, class: 'breadcrumb' %>
+        </div>
+      </div>
+    </nav>
       <div class="card-panel">
         <div class="row" style="margin-bottom: 0">
           <div class="col s12">
-            <table class="highlight">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Phone</th>
-                  <th width="250"></th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <% current_user.contacts.each do |contact| %>
-                  <tr>
-                    <td><%= contact.id %></td>
-                    <td><%= contact.name %></td>
-                    <td><%= contact.phone %></td>
-                    <td>
-                      <%= link_to icon('pencil'), edit_contact_path(contact), class: 'btn orange white-text' %>
-                      <%= link_to icon('trash-o'), contact_path(contact), class: 'btn red white-text', method: :delete, data: { confirm: 'Вы уверены?' } %>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+            <% if current_user.contacts.empty? %>
+                <p>You haven't contacts yet.</p>
+            <% else %>
+                <table class="stripped">
+                  <% current_user.contacts.each do |contact| %>
+                      <tr>
+                        <td><%= contact.name %></td>
+                        <td><%= contact.phone %></td>
+                        <td class="right">
+                          <%= link_to icon('search'), contact_path(contact), class: 'btn'%>
+                          <%= link_to icon('trash-o'), contact_path(contact), class: 'btn red', method: :delete %>
+                        </td>
+                      </tr>
+                  <% end %>
+                </table>
+            <% end %>
           </div>
         </div>
       </div>

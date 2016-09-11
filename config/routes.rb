@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     get 'profile'   => 'devise/registrations#edit'
     delete 'logout' => 'devise/sessions#destroy'
   end
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   authenticated :user do
     root :to => 'dashboard#index'
   end
