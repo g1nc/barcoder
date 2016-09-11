@@ -4,6 +4,8 @@ gem 'devise'
 gem 'materialize-sass'
 gem 'font-awesome-sass'
 
+gem 'haml'
+
 gem 'fcm'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -39,6 +41,8 @@ group :development, :test do
   gem 'sqlite3'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'capybara'
+  gem 'rspec-rails'
 end
 
 group :development do
