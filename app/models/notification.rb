@@ -12,7 +12,7 @@ class Notification < ApplicationRecord
         registration_ids = [] # an array of one or more client registration tokens
         self.user.contacts.each do |contact|
           registration_ids.push(contact.token)
-          contact.notification << self
+          contact.notifications << self
         end
 
         fcm = FCM.new('AIzaSyB2zA4TL9napLFnR0cNI_I9gcdfg9qmZ6g', verify: false)
