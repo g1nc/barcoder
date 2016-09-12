@@ -1,7 +1,7 @@
 class Notification < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :contacts
-  after_save :send_notification
+  before_save :send_notification
 
   validates :text, presence: true
   

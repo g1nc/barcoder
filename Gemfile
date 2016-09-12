@@ -5,6 +5,7 @@ gem 'materialize-sass'
 gem 'font-awesome-sass'
 
 gem 'haml'
+gem 'haml-rails'
 
 gem 'fcm'
 

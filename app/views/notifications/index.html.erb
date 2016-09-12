@@ -23,6 +23,7 @@
                 <tr>
                   <td><%= notification.text %></td>
                   <td><%= notification.link %></td>
+                  <td><%= notification.response %></td>
                   <td class="right">
                     <%= link_to icon('search'), notification_path(notification), class: 'btn'%>
                     <%= link_to icon('trash-o'), notification_path(notification), class: 'btn red', method: :delete %>
