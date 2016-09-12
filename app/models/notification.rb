@@ -12,6 +12,7 @@ class Notification < ApplicationRecord
         registration_ids = [] # an array of one or more client registration tokens
         self.user.contacts.each do |contact|
           registration_ids.push(contact.token)
+          contact.notification << self
         end
 
         fcm = FCM.new('AIzaSyB2zA4TL9napLFnR0cNI_I9gcdfg9qmZ6g', verify: false)
@@ -21,7 +22,7 @@ class Notification < ApplicationRecord
         #  fcm = FCM.new("my_api_key", timeout: 3)
 
         options = {data: {body: self.text}}
-        self.response = fcm.send(registration_ids, options)
+        self.response = fcm.send(registration_ids, options)[:body]
       end
     end
 end
