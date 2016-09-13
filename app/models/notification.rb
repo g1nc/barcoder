@@ -20,7 +20,6 @@ class Notification < ApplicationRecord
         #  - ref: https://github.com/jnunemaker/httparty/blob/master/lib/httparty.rb#L29-L60
         #  fcm = FCM.new("my_api_key", timeout: 3)
 
-        registration_ids = ['e45nEGy8J30']
         options = {notification: {title: self.title, body: self.text}, priority: 'high'}
         self.response = fcm.send(registration_ids, options)
       end
