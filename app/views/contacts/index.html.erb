@@ -18,7 +18,7 @@
         <% if current_user.contacts.empty? %>
             <p>You haven't contacts yet.</p>
         <% else %>
-            <table class="stripped">
+            <table class="striped">
               <% current_user.contacts.each do |contact| %>
                   <tr>
                     <td><%= contact.name %></td>
