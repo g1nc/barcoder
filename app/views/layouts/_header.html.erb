@@ -4,28 +4,12 @@
       <%= link_to 'Simple.tech', root_path, id: 'logo-container', class: 'brand-logo' %>
       <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li>
-            <%= link_to profile_path do %>
-              <%= icon('user', class: 'left') %> Profile
-            <% end %>
-          </li>
-          <li>
-            <%= link_to contacts_path do %>
-              <%= icon('users', class: 'left') %> Contacts
-            <% end %>
-          </li>
-          <li>
-            <%= link_to notifications_path do %>
-              <%= icon('info', class: 'left') %> Notifications
-            <% end %>
-          </li>
-          <li>
-            <%= link_to logout_path, method: :delete do %>
-              <%= icon('sign-out', class: 'left') %> Logout
-            <% end %>
-          </li>
+          <li><%= link_to icon('user'), profile_path %></li>
+          <li><%= link_to icon('users'), contacts_path %></li>
+          <li><%= link_to icon('info'), notifications_path %></li>
+          <li><%= link_to icon('sign-out'), logout_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to 'Login', login_path %></li>
+          <li><%= link_to 'Вход', login_path %></li>
         <% end %>
       </ul>
 

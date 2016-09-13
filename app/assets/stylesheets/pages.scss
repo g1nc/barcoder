@@ -1,3 +1,22 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding: 0 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.collection.features {
+  border: none;
+  .collection-item {
+    border-bottom: none;
+    background: transparent;
+  }
+}

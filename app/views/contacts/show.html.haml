@@ -1,0 +1,21 @@
+.section.light-blue{ style: 'min-height: 240px'}
+
+.container{ style: 'margin-top: -150px'}
+  .row
+    = render('dashboard/menu')
+    .col.s12.m8.l9
+      %nav{style: 'margin-top: 0.5rem'}
+        .nav-wrapper
+          .col.s12
+            = link_to icon('home'), root_path, class: 'breadcrumb'
+            = link_to 'Контакты', contacts_path, class: 'breadcrumb'
+            = link_to 'Просмотр', @contact, class: 'breadcrumb'
+
+      .card-panel
+        %div
+          %p
+            = @contact.name
+          %p
+            = @contact.phone
+          %p
+            = @contact.token

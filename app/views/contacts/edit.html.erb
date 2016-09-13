@@ -1,0 +1,22 @@
+<div class="section light-blue" style="min-height: 240px"></div>
+
+<div class="container" style="margin-top: -150px">
+  <div class="row">
+    <%= render('dashboard/menu') %>
+    <div class="col s12 m8 l9">
+      <nav style="margin-top: 0.5rem">
+        <div class="nav-wrapper">
+          <div class="col s12">
+            <%= link_to icon('home'), root_path, class: 'breadcrumb' %>
+            <%= link_to 'Контакты', contacts_path, class: 'breadcrumb' %>
+            <%= link_to 'Редактирование', edit_contact_path(@contact), class: 'breadcrumb' %>
+          </div>
+        </div>
+      </nav>
+
+      <div class="card-panel">
+        <%= render 'form', contact: @contact %>
+      </div>
+    </div>
+  </div>
+</div>

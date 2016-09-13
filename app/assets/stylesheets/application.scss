@@ -8,6 +8,8 @@ $secondary-color: color("light-blue", "base") !default;
 
 @import 'https://fonts.googleapis.com/css?family=Anton';
 
+@import 'pages';
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -67,3 +69,4 @@ main {
   background: white;
   padding: 10px;
 }
+
