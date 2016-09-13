@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7733880b-ff4a-4847-b4af-b958f780599a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/notification.rb" afterPath="$PROJECT_DIR$/app/models/notification.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/contacts/index.html.erb" afterPath="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
     </list>
     <ignored path="barcoder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -69,11 +69,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="notification.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="notification.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/notification.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
               <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -169,7 +179,6 @@
         <option value="$PROJECT_DIR$/db/migrate/20160907183104_create_notifications.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/init.coffee" />
         <option value="$PROJECT_DIR$/app/views/notifications/new.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_header.html.erb" />
         <option value="$PROJECT_DIR$/app/views/notifications/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/edit.html.erb" />
@@ -178,6 +187,7 @@
         <option value="$PROJECT_DIR$/app/views/notifications/index.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/models/notification.rb" />
+        <option value="$PROJECT_DIR$/app/views/contacts/index.html.erb" />
       </list>
     </option>
   </component>
@@ -295,6 +305,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="layouts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="barcoder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="barcoder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contacts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -532,12 +564,12 @@
       <workItem from="1473501079105" duration="22917000" />
       <workItem from="1473599366451" duration="4940000" />
       <workItem from="1473698058131" duration="5092000" />
-      <workItem from="1473759426556" duration="689000" />
+      <workItem from="1473759426556" duration="773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98202000" />
+    <option name="totallyTimeSpent" value="98286000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="32" width="1936" height="1056" extended-state="6" />
@@ -840,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="29" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/contacts/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -971,6 +996,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="22" column="70" selection-start-line="22" selection-start-column="70" selection-end-line="22" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/contacts/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="29" selection-start-line="28" selection-start-column="29" selection-end-line="28" selection-end-column="29" />
           <folding />
         </state>
       </provider>

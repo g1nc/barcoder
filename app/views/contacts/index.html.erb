@@ -22,6 +22,7 @@
                       <tr>
                         <td><%= contact.name %></td>
                         <td><%= contact.phone %></td>
+                        <td><%= contact.token %></td>
                         <td class="right">
                           <%= link_to icon('search'), contact_path(contact), class: 'btn'%>
                           <%= link_to icon('trash-o'), contact_path(contact), class: 'btn red', method: :delete %>
