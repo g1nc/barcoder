@@ -1,0 +1,16 @@
+= link_to icon('plus'), new_topic_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
+- if topics.empty?
+  %p You haven't topics yet.
+- else
+  %table.striped
+    - topics.each do |t|
+      %tr
+        %td
+          = t.title
+        %td
+          = t.events.count
+        %td
+          = t.description
+        %td.right
+          = link_to icon('pencil'), edit_topic_path(t), class: 'btn orange'
+          = link_to icon('trash-o'), t, class: 'btn red', method: :delete

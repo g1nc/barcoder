@@ -1,0 +1,27 @@
+= form_for(notification, html: { class: 'row' }) do |f|
+  - if notification.errors.any?
+    .error_explanation
+      %h4
+        = pluralize(notification.errors.count, 'error')
+        prohibited this topic from being saved:
+      %ul
+        - notification.errors.full_messages.each do |message|
+          %li= message
+
+  .input-field.col.s12
+    = f.text_field :title
+    = f.label :title
+  .input-field.col.l6.m12
+    = f.select(:topic_id) do
+      - Topic.all.each do |t|
+        = content_tag(:option, t.title, value: t.id)
+    = f.label :topic
+  .input-field.col.l6.m12
+    = f.text_field :link
+    = f.label :link
+  .input-field.col.s12
+    = f.text_area :text, class: 'materialize-textarea'
+    = f.label :text
+  .input-field.col.s12
+    = f.submit 'Save', class: 'btn orange'
+    = link_to 'Back', :back, class: 'btn'

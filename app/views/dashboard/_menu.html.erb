@@ -4,6 +4,12 @@
         <img src="http://placehold.it/300x300" class="responsive-img">
     <% end %>
 
+    <%= link_to topics_path, class: 'collection-item' do %>
+        <%= icon('hashtag', class: 'left') %> Темы
+    <% end %>
+    <%= link_to events_path, class: 'collection-item' do %>
+        <%= icon('calendar', class: 'left') %> События
+    <% end %>
     <%= link_to contacts_path, class: 'collection-item' do %>
         <%= icon('users', class: 'left') %> Контакты
     <% end %>

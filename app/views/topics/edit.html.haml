@@ -1,0 +1,33 @@
+.section.light-blue{ style: 'min-height: 240px'}
+
+.container{ style: 'margin-top: -150px'}
+  .row
+    = render('dashboard/menu')
+    .col.s12.m8.l9
+      %nav{ style: 'margin-top: 0.5rem'}
+        .nav-wrapper
+          .col.s12
+            = link_to icon('home'), root_path, class: 'breadcrumb'
+            = link_to 'Темы', topics_path, class: 'breadcrumb'
+            = link_to 'Редактирование', edit_topic_path(@topic), class: 'breadcrumb'
+      .card-panel
+        = render('topics/form', topic: @topic)
+
+      .col.s12
+        %ul.tabs
+          %li.tab.col.s4
+            %a{ href: '#notifications' } Уведомления
+          %li.tab.col.s4
+            %a{ href: '#events' } События
+          %li.tab.col.s4
+            %a{ href: '#contacts' } Контакты
+
+      .col.s12#notifications{ style: 'padding: 0' }
+        .card-panel
+          = render 'notifications/grid', notifications: @topic.notifications
+      .col.s12#events{ style: 'padding: 0' }
+        .card-panel
+          = render 'events/grid', events: @topic.events
+      .col.s12#contacts{ style: 'padding: 0' }
+        .card-panel
+          = render 'contacts/grid', contacts: @topic.contacts

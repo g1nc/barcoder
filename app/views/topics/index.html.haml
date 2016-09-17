@@ -1,0 +1,13 @@
+.section.light-blue{ style: 'min-height: 240px'}
+
+.container{ style: 'margin-top: -150px'}
+  .row
+    = render('dashboard/menu')
+    .col.s12.m8.l9
+      %nav{ style: 'margin-top: 0.5rem'}
+        .nav-wrapper
+          .col.s12
+            = link_to icon('home'), root_path, class: 'breadcrumb'
+            = link_to 'Темы', topics_path, class: 'breadcrumb'
+      .card-panel
+        = render 'grid', topics: current_user.topics

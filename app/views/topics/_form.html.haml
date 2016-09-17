@@ -1,0 +1,20 @@
+= form_for(topic, html: { class: 'row', style: 'margin-bottom: 0' }) do |f|
+  - if topic.errors.any?
+    .error_explanation
+      %h4
+        = pluralize(topic.errors.count, 'error')
+        prohibited this topic from being saved:
+      %ul
+        - topic.errors.full_messages.each do |message|
+          %li
+            = message
+
+  .input-field.col.s12
+    = f.text_field :title
+    = f.label :title
+  .input-field.col.s12
+    = f.text_area :description, class: 'materialize-textarea'
+    = f.label :description
+  .input-field.col.s12
+    = f.submit 'Save', class: 'btn orange'
+    = link_to 'Back', :back, class: 'btn'

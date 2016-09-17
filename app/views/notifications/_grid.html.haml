@@ -1,0 +1,13 @@
+= link_to icon('plus'), new_notification_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
+- if notifications.empty?
+  %p You haven't notifications yet.
+- else
+  %table
+    - notifications.each do |n|
+      %tr
+        %td= n.title
+        %td= n.topic.title
+        %td= n.link
+        %td.right
+          = link_to icon('pencil'), notification_path(n), class: 'btn orange'
+          = link_to icon('trash-o'), notification_path(n), class: 'btn red', method: :delete

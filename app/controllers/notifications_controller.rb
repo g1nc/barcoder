@@ -6,9 +6,6 @@ class NotificationsController < ApplicationController
     @notifications = Notification.all
   end
 
-  def show
-  end
-
   def new
     @notification = Notification.new
   end
@@ -16,38 +13,24 @@ class NotificationsController < ApplicationController
   def create
     @notification = Notification.new(notification_params)
     @notification.user = current_user
-    respond_to do |format|
-      if @notification.save
-        format.html { redirect_to @notification, notice: 'Notification was successfully created.' }
-        format.json { render :show, status: :created, location: @notification }
-      else
-        format.html { render :new }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
+    if @notification.save
+      redirect_to @notification, notice: 'Notification was successfully created.'
+    else
+      render :new
     end
   end
 
-  def edit
-  end
-
   def update
-    respond_to do |format|
-      if @notification.update(notification_params)
-        format.html { redirect_to @notification, notice: 'Notification was successfully updated.' }
-        format.json { render :show, status: :ok, location: @notification }
-      else
-        format.html { render :edit }
-        format.json { render json: @notification.errors, status: :unprocessable_entity }
-      end
+    if @notification.update(notification_params)
+      redirect_to @notification, notice: 'Notification was successfully updated.'
+    else
+      render :edit
     end
   end
 
   def destroy
     @notification.delete
-    respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to notifications_url, notice: 'Notification was successfully destroyed.'
   end
 
   private
@@ -56,6 +39,6 @@ class NotificationsController < ApplicationController
     end
 
     def notification_params
-      params.require(:notification).permit(:link, :text)
+      params.require(:notification).permit(:topic_id, :title, :link, :text)
     end
 end

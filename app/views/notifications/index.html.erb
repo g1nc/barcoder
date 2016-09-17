@@ -14,24 +14,7 @@
       </nav>
 
       <div class="card-panel">
-        <%= link_to icon('plus'), new_notification_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px' %>
-        <% if @notifications.empty? %>
-          <p>You haven't notifications yet.</p>
-        <% else %>
-          <table class="stripped">
-            <% @notifications.each do |notification| %>
-                <tr>
-                  <td><%= notification.text %></td>
-                  <td><%= notification.link %></td>
-                  <td><%= notification.response %></td>
-                  <td class="right">
-                    <%= link_to icon('search'), notification_path(notification), class: 'btn'%>
-                    <%= link_to icon('trash-o'), notification_path(notification), class: 'btn red', method: :delete %>
-                  </td>
-                </tr>
-            <% end %>
-          </table>
-        <% end %>
+        <%= render 'notifications/grid', notifications: @notifications %>
       </div>
     </div>
   </div>
