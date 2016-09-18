@@ -8,10 +8,9 @@ class Notification < ApplicationRecord
   
   private
     def send_notification
-
-      if self.user.contacts
+      if self.topic.contacts
         registration_ids = [] # an array of one or more client registration tokens
-        self.user.contacts.each do |contact|
+        self.topic.contacts.each do |contact|
           registration_ids.push(contact.token)
           self.contacts << contact
         end

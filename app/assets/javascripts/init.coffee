@@ -14,6 +14,7 @@ App.init = ->
       selectYears: 15
   })
   $('ul.tabs').tabs()
+  $('.materialize-textarea').trigger('autoresize')
 
 $(document).on "turbolinks:load", ->
   App.init()

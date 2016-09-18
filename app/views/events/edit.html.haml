@@ -9,6 +9,15 @@
           .col.s12
             = link_to icon('home'), root_path, class: 'breadcrumb'
             = link_to 'События', events_path, class: 'breadcrumb'
-            = link_to 'Добавление', new_event_path, class: 'breadcrumb'
+            = link_to 'Редактирование', edit_event_path(@event) , class: 'breadcrumb'
       .card-panel
         = render 'form', event: @event
+
+      .col.s12
+        %ul.tabs
+          %li.tab.col.s12
+            %a{ href: '#contacts' } Контакты
+
+      .col.s12#contacts{ style: 'padding: 0' }
+        .card-panel
+          = render 'contacts/grid', contacts: @event.contacts

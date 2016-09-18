@@ -1,8 +1,12 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.order(:date)
+  end
+
+  def show
   end
 
   def new
@@ -19,7 +23,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-
   end
 
   private

@@ -1,9 +1,7 @@
 = form_for(notification, html: { class: 'row' }) do |f|
   - if notification.errors.any?
     .error_explanation
-      %h4
-        = pluralize(notification.errors.count, 'error')
-        prohibited this topic from being saved:
+      %h4= pluralize(notification.errors.count, 'error') + 'prohibited this notification from being saved:'
       %ul
         - notification.errors.full_messages.each do |message|
           %li= message
@@ -22,6 +20,9 @@
   .input-field.col.s12
     = f.text_area :text, class: 'materialize-textarea'
     = f.label :text
+  .input-field.col.s12
+    = f.text_area :response, class: 'materialize-textarea', disabled: 'disabled'
+    = f.label :response
   .input-field.col.s12
     = f.submit 'Save', class: 'btn orange'
     = link_to 'Back', :back, class: 'btn'

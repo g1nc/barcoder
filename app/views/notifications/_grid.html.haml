@@ -9,5 +9,5 @@
         %td= n.topic.title
         %td= n.link
         %td.right
-          = link_to icon('pencil'), notification_path(n), class: 'btn orange'
-          = link_to icon('trash-o'), notification_path(n), class: 'btn red', method: :delete
+          = link_to icon('pencil'), edit_notification_path(n), class: 'btn orange'
+          = link_to icon('trash-o'), n, class: 'btn red', method: :delete

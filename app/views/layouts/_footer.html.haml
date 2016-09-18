@@ -1,0 +1,24 @@
+%footer.page-footer.light-blue
+  .container
+    .row
+      .col.l6.m8.s12
+        %h5.white-text Company Bio
+        %p.grey-text.text-lighten-4
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque esse labore officiis quis similique?
+          Consequatur culpa facere harum ipsa magnam, molestias non numquam quaerat quas vero!
+          Corporis explicabo laborum provident.
+      .col.l3.m2.s6
+        %h5.white-text Links
+        %ul
+          %li= link_to 'About', static_about_path, class: 'white-text'
+          %li= link_to 'Contact', static_contact_path, class: 'white-text'
+      .col.l3.m2.s6
+        %h5.white-text Connect
+        %ul
+          %li
+            %a.white-text{ href: '#!' } Link 1
+            %a.white-text{ href: '#!' } Link 2
+  .footer-copyright
+    .container
+      Made by
+      %a.light-blue-text.text-lighten-3{ href: 'https://github.com/g1nc' } g1nc

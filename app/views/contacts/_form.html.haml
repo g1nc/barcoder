@@ -1,0 +1,24 @@
+= form_for contact, html: { class: 'row' } do |f|
+  - if contact.errors.any?
+    .error_explanation
+      %h4= pluralize contact.errors.count, 'error' + 'prohibited this contact from being saved:'
+      %ul
+        - contact.errors.full_messages.each do |message|
+          %li= message
+
+  .input-field.col.l6.s12
+    = f.text_field :name
+    = f.label :name
+  .input-field.col.l6.s12
+    = f.text_field :phone
+    = f.label :phone
+  .input-field.col.l6.s12
+    = f.text_field :token
+    = f.label :token
+  .input-field.col.l6.s12
+    = f.text_field :code, disabled: 'disabled'
+    = f.label :code
+
+  .input-field.col.s12
+    = f.submit 'Save', class: 'btn orange'
+    = link_to 'Back', :back, class: 'btn'
