@@ -14,10 +14,14 @@ Rails.application.routes.draw do
 
   resources :contacts, :notifications, :topics, :events
 
+  # API routes
   scope 'api', as: 'api', defaults: {format: :json} do
-    match 'contacts', to: 'api#contact', via: :post
-    match 'topics',   to: 'api#topics',  via: :get
-    match 'events',   to: 'api#events',  via: :get
+    match 'contacts',    to: 'api#contact',     via: :post
+    match 'topics',      to: 'api#topics',      via: :get
+    match 'events',      to: 'api#events',      via: :get
+    # Contact subscribe/unsubscribe for topics
+    match 'subscribe',   to: 'api#subscribe',   via: :post
+    match 'unsubscribe', to: 'api#unsubscribe', via: :post
   end
 
   match 'contact', as: 'static_contact', to: 'pages#contact', via: :get

@@ -25,6 +25,29 @@ class ApiController < ApplicationController
     render json: { success: true, events: @user.events}
   end
 
+  def subscribe
+    @contact = Contact.find(params[:contact])
+    @topic = Topic.find(params[:topic])
+    if @contact.topics.find(@topic).nil?
+      @contact.topics << @topic
+      render json: { success: true, events: @user.events}
+    else
+      render json: { success: false, errors: 'Already subscribed.'}
+    end
+  end
+
+  def unsubscribe
+    @contact = Contact.find(params[:contact])
+    @topic = @contact.topics.find(params[:topic])
+
+    if @topic.nil?
+      render json: { success: false, errors: "Contact isn't subscribed for this topic."}
+    else
+      @contact.topics.delete(@topic)
+      render json: { success: true }
+    end
+  end
+
   private
     def set_user
       @user = User.find_by_token(params[:app])
