@@ -28,7 +28,7 @@ class ApiController < ApplicationController
   private
     def set_user
       @user = User.find_by_token(params[:app])
-      if @user.empty?
+      if @user.nil?
         render json: { success: false, errors: 'Invalid token.'}
       end
     end
