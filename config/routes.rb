@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   resources :contacts, :notifications, :topics, :events
 
   scope 'api', as: 'api', defaults: {format: :json} do
-    post 'contacts', to: 'api#contact', via: :post
+    post 'contacts', to: 'api#contact'
+    get 'topics', to: 'api#topics'
   end
 
   match 'contact', as: 'static_contact', to: 'pages#contact', via: :get
