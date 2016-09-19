@@ -17,4 +17,13 @@ class ApiController < ApplicationController
       render json: { success: false, errors: @contact.errors, status: :unprocessable_entity }
     end
   end
+
+  def topics
+    @user = User.find_by_token(params[:app])
+    if @user
+      render json: { success: true, topics: @user.topics}
+    else
+      render json: { success: false, errors: 'Invalid token.'}
+    end
+  end
 end
