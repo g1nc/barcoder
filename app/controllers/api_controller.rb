@@ -22,7 +22,7 @@ class ApiController < ApplicationController
   end
 
   def events
-    render json: { success: true, topics: @user.events}
+    render json: { success: true, events: @user.events}
   end
 
   private
