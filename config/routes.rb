@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   scope 'api', as: 'api', defaults: {format: :json} do
     match 'contacts', to: 'api#contact', via: :post
     match 'topics',   to: 'api#topics',  via: :get
-    match 'events',   to: 'api#topics',  via: :get
+    match 'events',   to: 'api#events',  via: :get
   end
 
   match 'contact', as: 'static_contact', to: 'pages#contact', via: :get
