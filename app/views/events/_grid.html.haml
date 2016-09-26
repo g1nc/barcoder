@@ -8,7 +8,6 @@
         %td= event.date
         %td= event.topic.title
         %td= event.title
-        %td= event.description
         %td.right
           = link_to icon('pencil'), edit_event_path(event), class: 'btn orange'
           = link_to icon('trash-o'), event, class: 'btn red', method: :delete

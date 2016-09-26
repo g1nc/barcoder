@@ -16,12 +16,22 @@
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: 'row', multipart: true }) do |f| %>
             <%= devise_error_messages! %>
 
+            <div class="file-field input-field col m6 s12">
+              <div class="btn">
+                <span>File</span>
+                <%= f.file_field :avatar %>
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text">
+              </div>
+            </div>
+
             <div class="input-field col m6 s12">
               <%= f.email_field :email, autofocus: true %>
               <%= f.label :email %>
             </div>
 
-            <div class="input-field col m6 s12">
+            <div class="input-field col s12">
               <%= f.text_field :token %>
               <%= f.label :token %>
             </div>

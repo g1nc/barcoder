@@ -6,12 +6,11 @@ class ContactsController < ApplicationController
   end
 
   def new
-    @contact = Contact.new
+    @contact = current_user.contacts.build
   end
 
   def create
-    @contact = Contact.new(contact_params)
-    @contact.user = current_user
+    @contact = current_user.contacts.build(contact_params)
     if @contact.save
       redirect_to edit_contact_path(@contact), notice: 'Contact was successfully created.'
     else

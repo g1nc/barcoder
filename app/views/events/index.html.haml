@@ -10,4 +10,4 @@
             = link_to icon('home'), root_path, class: 'breadcrumb'
             = link_to 'События', events_path, class: 'breadcrumb'
       .card-panel
-        = render 'events/grid', events: current_user.events
+        = render 'grid', events: @events

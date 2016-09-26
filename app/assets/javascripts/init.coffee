@@ -18,3 +18,7 @@ App.init = ->
 
 $(document).on "turbolinks:load", ->
   App.init()
+
+$ -> 
+  Materialize.updateTextFields()
+  $('.materialize-textarea').trigger('autoresize')

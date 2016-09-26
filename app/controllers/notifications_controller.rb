@@ -3,16 +3,15 @@ class NotificationsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @notifications = Notification.all
+    @notifications = current_user.notifications
   end
 
   def new
-    @notification = Notification.new
+    @notification = current_user.notifications.build
   end
 
   def create
-    @notification = Notification.new(notification_params)
-    @notification.user = current_user
+    @notification = current_user.notifications.build(notification_params)
     if @notification.save
       redirect_to @notification, notice: 'Notification was successfully created.'
     else

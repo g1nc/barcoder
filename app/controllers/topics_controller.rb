@@ -3,16 +3,15 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
-    @topics = Topic.all
+    @topics = current_user.topics
   end
 
   def new
-    @topic = Topic.new
+    @topic = current_user.topics.build
   end
 
   def create
-    @topic = Topic.new(topic_params)
-    @topic.user = current_user
+    @topic = current_user.topics.build(topic_params)
     if @topic.save
       redirect_to @topic, notice: 'Topic was successfully created.'
     else

@@ -11,7 +11,7 @@
             = link_to 'События', events_path, class: 'breadcrumb'
             = link_to 'Редактирование', edit_event_path(@event) , class: 'breadcrumb'
       .card-panel
-        = render 'form', event: @event
+        = render 'form'
 
       .col.s12
         %ul.tabs

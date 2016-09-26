@@ -1,13 +1,13 @@
-= form_for(event, html: { class: 'row' }) do |f|
-  - if event.errors.any?
+= form_for @event, html: { class: 'row' } do |f|
+  - if @event.errors.any?
     .error_explanation
-      %h4= pluralize(event.errors.count, 'error') + 'prohibited this event from being saved:'
+      %h4= pluralize(@event.errors.count, 'error') + 'prohibited this event from being saved:'
       %ul
-        - event.errors.full_messages.each do |message|
+        - @event.errors.full_messages.each do |message|
           %li= message
 
   .input-field.col.l6.m12
-    = f.datetime_select :date
+    = f.text_field :date
     = f.label :date
   .input-field.col.l6.m12
     = f.select(:topic_id) do

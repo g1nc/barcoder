@@ -1,0 +1,14 @@
+.col.s12.m4.l3
+  .collection.z-depth-1
+    = link_to profile_path, class: 'collection-item center' do
+      = image_tag current_user.avatar.url(:medium), class: 'responsive-img'
+    = link_to topics_path, class: 'collection-item' do 
+      = icon('hashtag', class: 'left') + ' Темы'
+    = link_to events_path, class: 'collection-item' do
+      = icon('calendar', class: 'left') + ' События'
+    = link_to contacts_path, class: 'collection-item' do 
+      = icon('users', class: 'left') + ' Контакты'
+    = link_to notifications_path, class: 'collection-item' do 
+      = icon('info', class: 'left') + ' Уведомления'
+    = link_to logout_path, class: 'collection-item', method: :delete do
+      = icon('sign-out', class: 'left') + ' Выход'
