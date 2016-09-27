@@ -1,6 +1,6 @@
 = link_to icon('plus'), new_contact_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
 - if contacts.empty?
-  %p You haven't contacts yet.
+  %p У Вас еще нет созданных контактов.
 - else
   %table.striped
     - contacts.each do |c|
@@ -10,4 +10,4 @@
         %td= c.code
         %td.right
           = link_to icon('pencil'), edit_contact_path(c), class: 'btn orange'
-          = link_to icon('trash-o'), contact_path(c), class: 'btn red', method: :delete
+          = link_to icon('trash-o'), contact_path(c), class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }

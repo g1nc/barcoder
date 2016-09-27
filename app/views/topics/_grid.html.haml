@@ -1,6 +1,6 @@
 = link_to icon('plus'), new_topic_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
 - if topics.empty?
-  %p You haven't topics yet.
+  %p У Вас еще нет созданных тем.
 - else
   %table.striped
     - topics.each do |t|
@@ -10,4 +10,4 @@
         %td= t.description
         %td.right
           = link_to icon('pencil'), edit_topic_path(t), class: 'btn orange'
-          = link_to icon('trash-o'), t, class: 'btn red', method: :delete
+          = link_to icon('trash-o'), t, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }

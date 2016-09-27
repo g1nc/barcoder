@@ -1,6 +1,6 @@
 = link_to icon('plus'), new_event_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
 - if events.empty?
-  %p You haven't events yet.
+  %p У Вас еще нет созданных событий.
 - else
   %table.striped
     - events.each do |event|
@@ -10,4 +10,4 @@
         %td= event.title
         %td.right
           = link_to icon('pencil'), edit_event_path(event), class: 'btn orange'
-          = link_to icon('trash-o'), event, class: 'btn red', method: :delete
+          = link_to icon('trash-o'), event, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }

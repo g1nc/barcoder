@@ -1,6 +1,6 @@
 = link_to icon('plus'), new_notification_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
 - if notifications.empty?
-  %p You haven't notifications yet.
+  %p У Вас еще нет созданных уведомлений.
 - else
   %table
     - notifications.each do |n|

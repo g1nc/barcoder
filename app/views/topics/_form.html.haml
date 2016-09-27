@@ -8,10 +8,10 @@
 
   .input-field.col.s12
     = f.text_field :title
-    = f.label :title
+    = f.label :title, 'Заголовок'
   .input-field.col.s12
     = f.text_area :description, class: 'materialize-textarea'
-    = f.label :description
+    = f.label :description, 'Описание'
   .input-field.col.s12
-    = f.submit 'Save', class: 'btn orange'
-    = link_to 'Back', :back, class: 'btn'
+    = f.submit 'Сохранить', class: 'btn orange'
+    = link_to 'Назад', :back, class: 'btn'

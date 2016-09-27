@@ -8,21 +8,21 @@
 
   .input-field.col.s12
     = f.text_field :title
-    = f.label :title
+    = f.label :title, 'Заголовок'
   .input-field.col.l6.m12
     = f.select(:topic_id) do
       - Topic.all.each do |t|
         = content_tag(:option, t.title, value: t.id)
-    = f.label :topic
+    = f.label :topic, 'Тема'
   .input-field.col.l6.m12
     = f.text_field :link
-    = f.label :link
+    = f.label :link, 'Ссылка'
   .input-field.col.s12
     = f.text_area :text, class: 'materialize-textarea'
-    = f.label :text
+    = f.label :text, 'Текст'
   .input-field.col.s12
     = f.text_area :response, class: 'materialize-textarea', disabled: 'disabled'
     = f.label :response
   .input-field.col.s12
-    = f.submit 'Save', class: 'btn orange'
-    = link_to 'Back', :back, class: 'btn'
+    = f.submit 'Сохранить', class: 'btn orange'
+    = link_to 'Назад', :back, class: 'btn'
