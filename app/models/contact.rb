@@ -12,7 +12,7 @@ class Contact < ApplicationRecord
 
   private
     def set_contact_code
-      if self.code.empty?
+      if self.code.blank?
         self.code = rand 100000000...999999999
       end
     end
