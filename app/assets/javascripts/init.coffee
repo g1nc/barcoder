@@ -22,3 +22,8 @@ $(document).on "turbolinks:load", ->
 $ -> 
   Materialize.updateTextFields()
   $('.materialize-textarea').trigger('autoresize')
+  $(".scroll-to").on "click", (e) ->
+    e.preventDefault()
+    $("body").animate
+      scrollTop: $($(this).data('to')).offset().top - 64
+      400

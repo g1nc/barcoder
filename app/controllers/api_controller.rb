@@ -4,8 +4,7 @@ class ApiController < ApplicationController
   respond_to :json
 
   def contact
-    @contact = Contact.new
-    @contact.user = @user
+    @contact = @user.contacts.build
     @contact.name = params[:name]
     @contact.phone = params[:phone]
     @contact.token = params[:token]
