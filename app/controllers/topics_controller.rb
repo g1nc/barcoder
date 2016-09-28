@@ -32,7 +32,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic.delete
-    redirect_to topics_path, notice: 'Тема успешно удалена'
+    redirect_to :back, notice: 'Тема успешно удалена'
   end
 
   private

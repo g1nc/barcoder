@@ -32,7 +32,7 @@ class ContactsController < ApplicationController
 
   def destroy
     @contact.delete
-    redirect_to contacts_path, notice: 'Контакт успешно удален'
+    redirect_to :back, notice: 'Контакт успешно удален'
   end
 
   private

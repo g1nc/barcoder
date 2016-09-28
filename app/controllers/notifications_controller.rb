@@ -32,7 +32,7 @@ class NotificationsController < ApplicationController
 
   def destroy
     @notification.delete
-    redirect_to notifications_url, notice: 'Уведомление успешно удалено'
+    redirect_to :back, notice: 'Уведомление успешно удалено'
   end
 
   private
