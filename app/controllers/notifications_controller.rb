@@ -13,15 +13,18 @@ class NotificationsController < ApplicationController
   def create
     @notification = current_user.notifications.build(notification_params)
     if @notification.save
-      redirect_to @notification, notice: 'Notification was successfully created.'
+      redirect_to edit_notifications_path(@notification), notice: 'Уведомление успешно создано'
     else
       render :new
     end
   end
 
+  def edit
+  end
+
   def update
     if @notification.update(notification_params)
-      redirect_to @notification, notice: 'Notification was successfully updated.'
+      redirect_to edit_notifications_path(@notification), notice: 'Уведомление успешно изменено'
     else
       render :edit
     end
@@ -29,7 +32,7 @@ class NotificationsController < ApplicationController
 
   def destroy
     @notification.delete
-    redirect_to notifications_url, notice: 'Notification was successfully destroyed.'
+    redirect_to notifications_url, notice: 'Уведомление успешно удалено'
   end
 
   private

@@ -6,9 +6,6 @@ class EventsController < ApplicationController
     @events = current_user.events.order(date: :asc)
   end
 
-  def show
-  end
-
   def new
     @event = Event.new
   end
@@ -16,7 +13,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     if @event.save
-      redirect_to events_path, notice: 'Event was successfully created.'
+      redirect_to edit_event_path(@event), notice: 'Событие успешно создано'
     else
       render :new
     end
@@ -27,7 +24,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update(event_params)
-      redirect_to events_path, notice: 'Event was successfully updated.'
+      redirect_to edit_event_path(@event), notice: 'Событие успешно изменено'
     else
       render :edit
     end
@@ -35,7 +32,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_path
+    redirect_to events_path, notice: 'Событие успешно удалено'
+    else
   end
 
   private
