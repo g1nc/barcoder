@@ -27,6 +27,6 @@ class Notification < ApplicationRecord
 
       fcm = FCM.new(self.user.token, verify: false)
       options = {notification: {title: self.title, body: self.text, sound: 'default'}, priority: 'high'}
-      self.response = fcm.send_with_notification_key("topic_#{self.topic_id}", options)[:body]
+      self.response = fcm.send_with_notification_key("/topics/topic_#{self.topic_id}", options)[:body]
     end
 end
