@@ -5,7 +5,8 @@
   %table.striped
     - events.each do |event|
       %tr
-        %td= event.date
+        %td= event.date.strftime("%d.%m")
+        %td= event.time
         %td= event.topic.title
         %td= event.title
         %td.right

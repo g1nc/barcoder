@@ -15,15 +15,14 @@ App.init = ->
   })
   $('ul.tabs').tabs()
   $('.materialize-textarea').trigger('autoresize')
+  $('.datepicker').pickadate({
+    selectMonths: true
+    selectYears: 15
+  }) 
 
 $(document).on "turbolinks:load", ->
   App.init()
 
 $ -> 
-  Materialize.updateTextFields()
-  $('.materialize-textarea').trigger('autoresize')
-  $(".scroll-to").on "click", (e) ->
-    e.preventDefault()
-    $("body").animate
-      scrollTop: $($(this).data('to')).offset().top - 64
-      400
+  App.init()
+  

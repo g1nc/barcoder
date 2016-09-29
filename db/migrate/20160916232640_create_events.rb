@@ -3,7 +3,8 @@ class CreateEvents < ActiveRecord::Migration[5.0]
     create_table :events do |t|
       t.integer :topic_id
       t.string :title
-      t.datetime :date
+      t.date :date
+      t.string :time
       t.text :description
 
       t.timestamps

@@ -25,7 +25,7 @@ class ApiController < ApplicationController
   end
 
   def subscribe
-    @contact = Contact.find(params[:contact])
+    @contact = Contact.find_by(code: params[:contact])
     @topic = Topic.find(params[:topic])
     if @contact.topics.find(@topic).nil?
       @contact.topics << @topic

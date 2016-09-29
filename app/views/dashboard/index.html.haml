@@ -1,0 +1,26 @@
+.section.light-blue{ style: 'min-height-240px' }
+
+.container  
+  .row
+    = render 'menu'
+    .col.s12.m8.l9
+      %nav{ style: 'margin-top:0.5rem' }
+        .nav-wrapper
+          .col.s12
+            = link_to icon('home'), root_path, class: 'breadcrumb'
+        .card-panel
+          .row{ style: 'margin-bottom:0' }
+            .col.s12.m6
+              .card-panel.green.z-depth-0
+                .row{ style: 'margin-bottom:0' }
+                  .col.s4.white-text= icon('users', class: 'fa-5x')
+                  .col.s8.white-text
+                    %h5{ style: 'margin:5px 0' } Контактов
+                    %h4{ style: 'margin:0' }= current_user.contacts.count
+            .col.s12.m6
+              .card-panel.orange.z-depth-0
+                .row{ style: 'margin-bottom:0' }
+                  .col.s4.white-text= icon('info', class: 'fa-5x')
+                  .col.s8.white-text
+                    %h5{ style: 'margin:5px 0' } Уведомлений
+                    %h4{ style: 'margin:0' }= current_user.notifications.count

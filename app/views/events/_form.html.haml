@@ -7,16 +7,19 @@
           %li= message
 
   .input-field.col.l6.m12
-    = f.text_field :date
+    = f.text_field :date, class: 'datepicker'
     = f.label :date, 'Дата'
+  .input-field.col.l6.m12
+    = f.text_field :time
+    = f.label :time, 'Время'
+  .input-field.col.l6.m12
+    = f.text_field :title
+    = f.label :title, 'Заголовок'
   .input-field.col.l6.m12
     = f.select(:topic_id) do
       - Topic.all.each do |t|
         = content_tag(:option, t.title, value: t.id)
     = f.label :topic, 'Тема'
-  .input-field.col.s12
-    = f.text_field :title
-    = f.label :title, 'Заголовок'
   .input-field.col.s12
     = f.text_area :description, class: 'materialize-textarea'
     = f.label :description, 'Описание'
