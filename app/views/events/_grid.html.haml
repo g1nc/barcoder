@@ -3,12 +3,17 @@
   %p У Вас еще нет созданных событий.
 - else
   %table.striped
-    - events.each do |event|
+    %thead
       %tr
-        %td= event.date.strftime("%d.%m")
-        %td= event.time
-        %td= event.topic.title
-        %td= event.title
-        %td.right
-          = link_to icon('pencil'), edit_event_path(event), class: 'btn orange'
-          = link_to icon('trash-o'), event, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }
+        %th Дата/Время
+        %th Тема
+        %th Заголовок
+    %tbody        
+      - events.each do |event|
+        %tr
+          %td= "#{event.date.strftime("%d.%m")} #{event.time}"
+          %td= event.topic.title
+          %td= event.title
+          %td.right
+            = link_to icon('pencil'), edit_event_path(event), class: 'btn orange'
+            = link_to icon('trash-o'), event, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }
