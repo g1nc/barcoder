@@ -6,9 +6,12 @@
         - topic.errors.full_messages.each do |message|
           %li= message
 
-  .input-field.col.s12
+  .input-field.col.m6.s12
     = f.text_field :title
     = f.label :title, 'Заголовок'
+  .input-field.col.m6.s12
+    = f.text_field :color
+    = f.label :color, 'Цвет'
   .input-field.col.s12
     = f.text_area :description, class: 'materialize-textarea'
     = f.label :description, 'Описание'
