@@ -2,12 +2,18 @@
 - if notifications.empty?
   %p У Вас еще нет созданных уведомлений.
 - else
-  %table
-    - notifications.each do |n|
+  %table.striped
+    %thead
       %tr
-        %td= n.title
-        %td= n.topic.title
-        %td= n.link
-        %td.right
-          = link_to icon('pencil'), edit_notification_path(n), class: 'btn orange'
-          = link_to icon('trash-o'), n, class: 'btn red', method: :delete
+        %th Заголовок
+        %th Тема
+        %th Ссылка
+    %tbody
+      - notifications.each do |n|
+        %tr
+          %td= n.title
+          %td= n.topic.title
+          %td= n.link
+          %td.right
+            = link_to icon('pencil'), edit_notification_path(n), class: 'btn orange'
+            = link_to icon('trash-o'), n, class: 'btn red', method: :delete
