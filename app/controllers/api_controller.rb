@@ -28,7 +28,7 @@ class ApiController < ApplicationController
     @contact = Contact.find_by_code(params[:contact])
     @topic = Topic.find(params[:topic])
     
-    if @contact.topics.where(id: 1).count == 0
+    if @contact.topics.where(id: params[:topic]).count == 0
       @contact.topics << @topic
       render json: { success: true, message: 'Succefully subscribed'}
     else
