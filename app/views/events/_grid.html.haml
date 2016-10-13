@@ -14,6 +14,6 @@
           %td= "#{event.date.strftime("%d.%m")} #{event.time}"
           %td= event.topic.title
           %td= event.title
-          %td.right
+          %td.right{ style: 'min-width: 170px' }
             = link_to icon('pencil'), edit_event_path(event), class: 'btn orange'
             = link_to icon('trash-o'), event, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }
