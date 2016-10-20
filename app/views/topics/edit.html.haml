@@ -20,7 +20,7 @@
           %li.tab.col.s4
             %a{ href: '#events' } События
           %li.tab.col.s4
-            %a{ href: '#contacts' } Контакты
+            %a{ href: '#contacts' } Подписки
 
       .col.s12#notifications{ style: 'padding: 0' }
         .card-panel
@@ -30,4 +30,4 @@
           = render 'events/grid', events: @topic.events
       .col.s12#contacts{ style: 'padding: 0' }
         .card-panel
-          = render 'contacts/grid', contacts: @topic.contacts
+          = render 'subscribes/grid', subscribes: @topic.subscribes

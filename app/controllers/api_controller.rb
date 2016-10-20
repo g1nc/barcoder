@@ -26,13 +26,11 @@ class ApiController < ApplicationController
 
   def subscribe
     @contact = Contact.find_by_code(params[:contact])
-    @topic = Topic.find(params[:topic])
-    
-    if @contact.topics.where(id: params[:topic]).count == 0
-      @contact.topics << @topic
+    if @contact.subscribes.where(topic_id: params[:topic]).any?
+      @contact.subscribes.create(topic_id: params[:topic])
       render json: { success: true, message: 'Succefully subscribed'}
     else
-      @contact.topics.delete(@topic)
+      @contact.subscribes.delete(@contact.subscribes.find_by_topic_id(params[:topic]).first)
       render json: { success: true, message: 'Succefully unsubscribed'}
     end
   end

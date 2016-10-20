@@ -19,11 +19,11 @@
           %li.tab.col.s6
             %a{ href: '#notifications' } Уведомления
           %li.tab.col.s6
-            %a{ href: '#topics' } Темы
+            %a{ href: '#topics' } Подписки
 
       .col.s12#notifications{ style: 'padding: 0' }
         .card-panel
           = render 'notifications/grid', notifications: @contact.notifications
       .col.s12#topics{ style: 'padding: 0' }
         .card-panel
-          = render 'topics/grid', topics: @contact.topics
+          = render 'subscribes/grid', subscribes: @contact.subscribes

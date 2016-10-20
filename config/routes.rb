@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     root :to => 'dashboard#index'
   end
 
-  resources :contacts, :notifications, :topics, :events
+  resources :contacts, :notifications, :topics, :events, :subscribe
 
   # API routes
   scope 'api', as: 'api', defaults: {format: :json} do

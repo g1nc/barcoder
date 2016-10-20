@@ -2,6 +2,7 @@ class Contact < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :notifications
   has_and_belongs_to_many :topics
+  has_many :subscribes
 
   before_validation :set_contact_code
 

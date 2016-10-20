@@ -1,0 +1,21 @@
+= link_to icon('plus'), new_subscribe_path, class: 'btn-floating btn-large waves-effect waves-light right red', style: 'margin-top: -50px'
+- if subscribes.empty?
+  %p Еще нет созданных подписок.
+- else
+  %table.striped
+    %thead
+      %tr
+        %th Тема
+        %th Имя
+        %th Телефон
+        %th Код
+    %tbody
+      - subscribes.each do |subscribe|
+        %tr
+          %td= link_to subscribe.topic.title, topic_path(subscribe.topic)
+          %td= link_to subscribe.contact.name, contact_path(subscribe.contact)
+          %td= subscribe.contact.phone
+          %td= subscribe.contact.code
+          %td.right
+            = link_to icon('pencil'), edit_subscribe_path(subscribe), class: 'btn orange'
+            = link_to icon('trash-o'), subscribe_path(subscribe), class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }
