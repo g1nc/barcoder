@@ -12,8 +12,8 @@
       - topics.each do |t|
         %tr
           %td= t.title
-          %td= t.events.count
-          %td= t.subscribes.count
+          %td= t.events.size
+          %td= t.subscribes.size
           %td.right
             = link_to icon('pencil'), edit_topic_path(t), class: 'btn orange'
             = link_to icon('trash-o'), t, class: 'btn red', method: :delete, data: { confirm: 'Вы уверены?' }

@@ -33,7 +33,6 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     redirect_to :back, notice: 'Событие успешно удалено'
-    else
   end
 
   private
